@@ -6,4 +6,4 @@
   gather_facts: false
   tasks:
     - name: Run powershell script
-      script: files/timeout.ps1
+      script: files/test.ps1
