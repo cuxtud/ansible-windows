@@ -5,6 +5,6 @@
   tasks:
     - name: Add User
       win_user:
-        name: ansible
+        name: { chef_fname }
         password: "@ns1bl3"
         state: present
