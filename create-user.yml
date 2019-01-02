@@ -4,7 +4,10 @@
   gather_facts: false
   tasks:
     - name: Add User
+    - set_fact:
+        username: "{{ lookup('env','chef_fname') }}"
+     
       win_user:
-        name: "{{ customOptions.chef_fname }}"
+        name: "{{ username }}"
         password: "@ns1bl3"
         state: present
