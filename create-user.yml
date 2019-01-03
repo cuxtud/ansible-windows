@@ -3,11 +3,8 @@
   hosts: all
   gather_facts: false
   tasks:
-    - name: Add User
-    - set_fact:
-        username: "{{ lookup('env','chef_fname') }}"
-     
+    - name: Add User  
       win_user:
-        name: "{{ username }}"
+        name: "{{ customOptions['chef_fname'] }}"
         password: "@ns1bl3"
         state: present
