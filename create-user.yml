@@ -6,5 +6,5 @@
     - name: Add User  
       win_user:
         name: "{{ instance['hostname'] }}"
-        password: "{{ cypher['read('secret/windowspass')'] }}"
+        password: "{{ cypher['read{secret/windowspass}'] }}"
         state: present
