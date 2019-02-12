@@ -7,7 +7,7 @@
   tasks:
     - name: Install IIS
       win_feature:
-        name: "Web-Server"
+        name: "{{ service_name }}"
         state: present
         restart: yes
         include_sub_features: yes
