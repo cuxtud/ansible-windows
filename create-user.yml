@@ -5,6 +5,6 @@
   tasks:
     - name: Add User  
       win_user:
-        name: "{{ customOptions['atuser'] }}"
+        name: anishadmin
         password: "@ns1bl3"
         state: present
