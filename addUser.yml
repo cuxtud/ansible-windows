@@ -6,5 +6,5 @@
     - name: Add User
       win_user:
         name: ansible
-        password: "@ns1bl3"
+        password: "{{ lookup('cypher','secret=secret/aapassword') }}"
         state: present
