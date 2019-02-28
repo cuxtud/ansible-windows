@@ -1,6 +1,6 @@
 ---
 - name: Add a user
-  hosts: all
+  hosts: "{{ morhost }}"
   gather_facts: false
   tasks:
     - name: Add User
