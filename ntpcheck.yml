@@ -1,14 +1,20 @@
 ---
 - hosts: all
-  become: yes
-  become_user: anish
-  become_method: runas
-  gather_facts: false
+  #become: yes
+  #become_user: anish
+  #become_method: runas
+  #gather_facts: false
   tasks:
     - name: create a task that will be repeated every five minutes for NTP Service Check
       win_scheduled_task:
         name: NTP Service Check
         description: Run a PowerShell script
+        vars:
+          ansible_become: yes
+          ansible_become_method: runas
+          ansible_become_user: anish
+          ansible_become_pass: Passw0rd123
+          ansible_become_flags: logon_type=new_credentials logon_flags=netcredentials_only
         actions:
           - path: C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe
             arguments: -ExecutionPolicy Unrestricted -NonInteractive -File c:\temp\NtpCheck.ps1
