@@ -20,6 +20,5 @@
           - interval: PT5M
             duration: PT7M
             stop_at_duration_end: yes
-        #username: SYSTEM
         state: present
         enabled: yes
