@@ -1,8 +1,9 @@
 ---
 - hosts: all
   become: yes
-  #become_user: Administrator
- # become_method: runas
+  become_user: anish
+  become_pass: Hawad1234
+  become_method: runas
   gather_facts: false
   tasks:
     - name: create a task that will be repeated every five minutes for NTP Service Check
