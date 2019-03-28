@@ -1,0 +1,20 @@
+---
+- hosts: all
+  gather_facts: false
+  tasks:
+    - name: create a task that will be repeated every five minutes for NTP Service Check
+      win_scheduled_task:
+        name: NTP Service Check
+        description: Run a PowerShell script
+        actions:
+          - path: C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe
+            arguments: -ExecutionPolicy Unrestricted -NonInteractive -File c:\temp\NtpCheck.ps1
+        triggers:
+        - type: registration
+          repetition:
+          - interval: PT5M
+            duration: PT7M
+            stop_at_duration_end: yes
+        username: SYSTEM
+        state: present
+        enabled: yes
