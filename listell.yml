@@ -1,0 +1,12 @@
+# this task downloads chocolatey client from the internal Gallery
+- name: Install Chocolatey client from "{{ chocolatey_source }}"
+  win_chocolatey:
+    name: chocolatey
+    state: "{{ chocolatey_state }}"
+    source: "{{ chocolatey_source }}"
+  become: yes
+  become_method: runas
+  become_flags: logon_type=new_credentials logon_flags=netcredentials_only
+  vars:
+    ansible_become_user: "{{ windows_localadmin_username }}"
+    ansible_become_pass: "{{ windows_localadmin_password }}"
