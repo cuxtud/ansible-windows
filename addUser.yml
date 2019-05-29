@@ -7,6 +7,6 @@
   tasks:
     - name: Add User
       win_user:
-        name: aditya
-        password: "{{ lookup('cypher','secret=secret/aapassword') }}"
+        name: aditya1
+        password: "{{ lookup('cypher','password=password/10/aapassword') }}"
         state: present
