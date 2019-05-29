@@ -7,6 +7,6 @@
   tasks:
     - name: Add User
       win_user:
-        name: ansible
+        name: aditya
         password: "{{ lookup('cypher','secret=secret/aapassword') }}"
         state: present
